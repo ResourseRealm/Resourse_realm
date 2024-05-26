@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="signup.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('.form');
+            const fullname = document.getElementById('fullname');
+            const gender = document.getElementById('gender');
+            const email = document.getElementById('email');
+            const phone = document.getElementById('phone');
+            const address = document.getElementById('address');
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirm-password');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                if (fullname.value.trim() === '') {
+                    alert('Please enter your full name.');
+                    return;
+                }
+
+                if (gender.value === '') {
+                    alert('Please select your gender.');
+                    return;
+                }
+
+                if (email.value.trim() === '' || !validateEmail(email.value)) {
+                    alert('Please enter a valid email address.');
+                    return;
+                }
+
+                if (phone.value.trim() === '' || !validatePhone(phone.value)) {
+                    alert('Please enter a valid phone number.');
+                    return;
+                }
+
+                if (address.value.trim() === '') {
+                    alert('Please enter your address.');
+                    return;
+                }
+
+                if (password.value.trim() === '') {
+                    alert('Please enter a password.');
+                    return;
+                }
+
+                if (password.value.length < 6) {
+                    alert('Passwords must be at least 6 characters.');
+                    return;
+                }
+
+                if (confirmPassword.value.trim() === '') {
+                    alert('Please confirm your password.');
+                    return;
+                }
+
+                if (password.value !== confirmPassword.value) {
+                    alert('Passwords do not match.');
+                    return;
+                }
+
+                alert('Account created successfully!');
+                form.reset();
+            });
+
+            function validateEmail(email) {
+                const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(String(email).toLowerCase());
+            }
+
+            function validatePhone(phone) {
+                const re = /^[+][(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/;
+                return re.test(phone);
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <form class="form">
+            <fieldset>
+                <legend>Create Account</legend>
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" required>
+                        <option value="" selected disabled hidden>Select gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea id="address" name="address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                    <p class="password-note">Passwords must be at least 6 characters.</p>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="notifications" name="notifications">
+                    <label for="notifications">Subscribe for notifications</label>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn">Create Account</button>
+                </div>
+                <p class="already-have-an-account">Already have an account? <a href="login.html">Sign in</a> ▸</p>
+                <p class="terms-and-conditions">By creating an account or logging in, you agree to Amazon's <a href="#">Conditions of Use</a> and <a href="#">Privacy Policy</a>.</p>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>

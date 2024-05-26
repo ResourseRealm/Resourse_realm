@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cart</title>
+    <link rel="stylesheet" type="text/css" href="offlinebooks.css">
+</head>
+<body>
+    <header>
+        <h1>Shopping Cart</h1>
+        <div class="cart">
+            <a href="offlinebooks.html" class="cart-button">Back to Shop</a>
+        </div>
+    </header>
+    <main>
+        <div class="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <button class="checkout-button">Proceed to Payment</button>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cartItemsElement = document.querySelector('.cart-items');
+            const checkoutButton = document.querySelector('.checkout-button');
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Function to render cart items
+            function renderCart() {
+                cartItemsElement.innerHTML = '';
+                cart.forEach((item, index) => {
+                    const itemHtml = `
+                        <div class="book-card">
+                            <img width="250px" src="${item.image}" alt="${item.title}" class="book-image">
+                            <h2 class="book-title">${item.title}</h2>
+                            <p class="book-author">${item.author}</p>
+                            <p class="book-price">$${item.price}</p>
+                            <button class="remove-button" data-index="${index}">Remove</button>
+                        </div>
+                    `;
+                    cartItemsElement.insertAdjacentHTML('beforeend', itemHtml);
+                });
+            }
+
+            // Render cart initially
+            renderCart();
+
+            // Remove item from cart
+            cartItemsElement.addEventListener('click', function(event) {
+                if (event.target.classList.contains('remove-button')) {
+                    const indexToRemove = event.target.getAttribute('data-index');
+                    cart.splice(indexToRemove, 1);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    renderCart();
+                }
+            });
+
+            // Proceed to payment
+            checkoutButton.addEventListener('click', function() {
+                // Your payment logic here
+                alert('Proceeding to payment...');
+            });
+        });
+    </script>
+</body>
+</html>

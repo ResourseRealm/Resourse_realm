@@ -1,0 +1,91 @@
+/* Existing CSS */
+
+header {
+    background-color: rgb(10, 9, 9); /* Semi-transparent background for the header */
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fcfafa;
+    font-weight: bold;
+}
+
+.book-carousel {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px;
+}
+
+.book {
+    flex: 0 0 auto;
+    width: 200px;
+    margin-right: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.book img {
+    width: 100%;
+    height: auto;
+}
+
+.book h3 {
+    font-size: 1.2em;
+    margin: 10px 0 5px;
+    color: #fffefe;
+}
+
+.book p {
+    font-size: 0.9em;
+    color: #f3f1f1;
+}
+
+/* New CSS for background image */
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://i.pinimg.com/736x/24/3c/1d/243c1d709182329320633deb19f207b3.jpg'); /* Replace with the path to your image */
+    background-size: cover; /* Makes the image cover the entire background */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    background-position: center center; /* Centers the background image */
+    background-attachment: fixed; /* Keeps the background image fixed during scroll */
+    filter: blur(5px); /* Adjust the blur radius as needed */
+    z-index: -1; /* Ensure the background stays behind other content */
+}
+
+.content {
+    position: relative;
+    z-index: 1; /* Make sure the content is above the blurred background */
+    color: white; /* Example content styling */
+    text-align: center;
+    padding-top: 20%;
+}
+.b
+{
+    color: white;
+}

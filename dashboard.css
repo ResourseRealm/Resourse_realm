@@ -1,0 +1,100 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  /background-color: #f2f2f2;/
+  display: flex;
+  background-image: url('https://rare-gallery.com/mocahbig/465201-library-Photoshop-magic-book-store-books.jpg');
+}
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  background-color: #4CAF50;
+  color: white;
+  width: 200px;
+  padding-top: 30px;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto; /* Enable scrolling */
+}
+
+.logo {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.logo img {
+  width: 100px;
+  height: auto;
+}
+
+.sidebar a {
+  padding: 15px;
+  text-decoration: none;
+  font-size: 15px;
+  color: white;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover {
+  background-color: #3e8e41;
+}
+
+.sidebar .active {
+  background-color: #3e8e41;
+}
+
+.sidebar .icon {
+  margin-right: 10px;
+}
+
+.sidebar .badge {
+  background-color: #f44336;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 50%;
+  font-size: 12px;
+  position: relative;
+  top: -3px;
+  left: 10px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  margin-left: 400px; /* Adjusted to accommodate the fixed sidebar */
+  margin-top: 250px;
+  background-color: #e9f0e9ee;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.back-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.back-button i {
+  font-size: 18px;
+}
+
+/* Background Image for Home Page */
+body.home {
+  background-image: url('https://rare-gallery.com/mocahbig/465201-library-Photoshop-magic-book-store-books.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Ensures the background image remains fixed while scrolling */
+}
